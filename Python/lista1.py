@@ -59,6 +59,9 @@ def amicaux2(n):
     
 import math
 
+#from zajecia2 import est_premier 
+#zamiast drugi raz pisac funkcje, mozna wykorzystac poprzednio napisane programy
+
 def est_premier(n):
     if(n>1):
         for i in range(2,math.floor(math.sqrt(n)+1)):
