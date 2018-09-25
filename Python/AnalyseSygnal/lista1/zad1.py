@@ -61,5 +61,7 @@ echantillon2 = []
 for i in range (44000):
     echantillon2.append(u(echantillon[i]))
 #g
-f.write(echantillon2)
-f.close()
+fn = open('la.pcm','wb')
+for i in range(len(echantillon2)):
+    fn.write(echantillon2[i])
+fn.close()

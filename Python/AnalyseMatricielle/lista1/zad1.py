@@ -22,7 +22,7 @@ def remontee(A,b):
 import numpy as np
 import scipy.linalg as lg
 
-A = np.array([[1.,2.,3.],[0.,5.,6.],[0.,0.,9.]])
+A = np.array([[1.,2.,3.],[0.,5.,6.],[0.,0.,9.]])  #kropki, zeby nie zaokraglac
 b = np.array([0.,2.,3.])
 x = remontee(A,b)
 #print(np.dot(A,x)-b)
@@ -35,4 +35,8 @@ A = np.triu(A)
 b = np.random.rand(n,1)
 x = remontee(A,b)
 #print(np.dot(A,x)-b)
-np.allclose(np.dot(A,x),b)
+np.allclose(np.dot(A,x),b) #porownuje dwa elementy
+
+x = lg.solve(A,b) #rozwiazuje
+
+#######################
