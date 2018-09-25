@@ -24,6 +24,14 @@ def Gauss1(A):
 A = np.array([[1.,1.,1.],[1.,2.,3.],[3.,2.,3.]])
 b = np.array([1.,1.,1.])
 
+#################spr
+T = Gauss1(A)
+U=np.triu(T)
+L=T-U
+L=L+np.eyes(3,3)
+np.dot(L,U)
+
+
 ##############################################
 def Gauss2(A,b):
     T = np.c_[A,b]
