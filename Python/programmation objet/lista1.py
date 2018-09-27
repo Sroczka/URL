@@ -143,6 +143,16 @@ def fib_list(n):
     return l
 
 #######################################################################
-# ex 6
+# rekurencja
+    
+def fact(n):  #silnia
+    print(f"appel de fact({n})")
+    if n == 0:
+        print(f"fin de l'appel de fact({n})")
+        return 1
+    else:
+        resultat = n * fact(n-1)
+    print(f"fin de l'appel de fact({n})")
+    return resultat
     
 
