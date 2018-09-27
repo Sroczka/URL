@@ -125,7 +125,20 @@ def taxicub2(N):
 
 ##############################################################################
 #ex 4
-
+def suivant_conoway(x):
+    mot = str(x)
+    mot_suivant = ""
+    i = 0
+    while i < len(mot):
+        j = 1
+        compte = 1
+        while i+j < len(mot) and mot[i+j] == mot[i]:
+            compte +=1
+            j += 1
+        mot_suivant = mot_suivant +str(compte) + mot[i]
+        i = i+j
+    return int(mot_suivant)
+    
 
 ##############################################################
 #ex 5
@@ -159,13 +172,23 @@ def fib2_list(n):
 
 #rekurencyjnie 2, bardziej wydajny
     
-def fib3(n):
+def fib3(n): #zwraca dwie zmienne
     if n == 0:
         return [1,1]
     x = fib3(n-1)
-    print(x)
     return [x[1], x[0]+x[1]]
 
+def fib3_1(n): #zwraca tylko jedna potrzebna liczbe
+    return fib3(n)[0]
+
+def list_fib(n):
+    l=[]
+    for i in range(n+1):
+        l.append(fib3_1(i))
+    return l
+
+def list_fib2(n):
+    return [fib3_1(i) for i in range(n+1)]
 #######################################################################
 # rekurencja
     
@@ -178,5 +201,21 @@ def fact(n):  #silnia
         resultat = n * fact(n-1)
     print(f"fin de l'appel de fact({n})")
     return resultat
+
+
+########################################################################
+# ex6 --- skoncz sama
     
+def suivants(n):
+    l=[]
+    if n == 1:
+        l.append(0)
+    elif n == 2:
+        l.append(0)
+        l.append(1)
+    elif n>2:
+        l.append(n-3)
+        l.append(n-2)
+        l.append(n-1)
+    return l
 
