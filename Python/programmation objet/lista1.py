@@ -142,11 +142,35 @@ def fib_list(n):
         l.append(l[i-1]+l[i-2])
     return l
 
+#rekurencyjnie
+
+def fib2(n):
+    if n == 0 or n == 1: #f n in [0,1]
+        result = 1
+    else:
+        result = fib2(n-1)+fib2(n-2)
+    return result
+
+def fib2_list(n):
+    l=[]
+    for i in range(0,n+1):
+        l.append(fib2(i))
+    return l
+
+#rekurencyjnie 2, bardziej wydajny
+    
+def fib3(n):
+    if n == 0:
+        return [1,1]
+    x = fib3(n-1)
+    print(x)
+    return [x[1], x[0]+x[1]]
+
 #######################################################################
 # rekurencja
     
 def fact(n):  #silnia
-    print(f"appel de fact({n})")
+    print(f"appel de fact({n})") #f podmienia wartosc n 
     if n == 0:
         print(f"fin de l'appel de fact({n})")
         return 1
