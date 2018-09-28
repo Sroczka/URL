@@ -96,10 +96,20 @@ class Rationnel:
             raise RuntimeError("opération non prévue")
     
     def __mul__(self,r):
-        return Rationnel(self.x*r.x, self.y*r.y)
+        if isinstance(r,Rationnel):
+            return Rationnel(self.x*r.x, self.y*r.y)
+        elif isinstance(r,int):
+            return Rationnel(self.x*r, self.y)
+        else:
+            raise RuntimeError("opération non prévue")
     
     def __truediv__(self,r):
-        return Rationnel(self.x*r.y, self.y*r.x)
+        if isinstance(r,Rationnel):
+            return Rationnel(self.x*r.y, self.y*r.x)
+        elif isinstance(r,int):
+            return Rationnel(self.x, self.y*r)
+        else:
+            raise RuntimeError("opération non prévue")
     
     def __sub__(self,r):
         if self.y == r.y:
@@ -127,3 +137,4 @@ print(r1*r2==r2*r3)
 print(r1/r2)
 print(r3/r1)
 print(r1+1)
+print(r1*2)
