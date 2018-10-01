@@ -56,9 +56,11 @@ marche <- function(x,n,p){
   pos = cumsum(direc)
   pos = c(x,x+pos)
   return(pos)
-  a = c(0:n)
-  plot(a,pos)
 }
+
+n = 100
+marche(0,n,1/2)
+plot(0:n,marche(0,n,1/2), 's')
 
 #ex 2.2
 a = c(0:n)
