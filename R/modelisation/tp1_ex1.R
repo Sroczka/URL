@@ -52,10 +52,12 @@ tmoyen1 = sum(stock1)/N
 #ex.2.1
 
 marche <- function(x,n,p){
-  direc = sample(c(-1,1), n, prob = c(p,1-p))
+  direc = sample(c(-1,1), n, prob = c(p,1-p), replace = T)
   pos = cumsum(direc)
   pos = c(x,x+pos)
   return(pos)
+  a = c(0:n)
+  plot(a,pos)
 }
 
 #ex 2.2
