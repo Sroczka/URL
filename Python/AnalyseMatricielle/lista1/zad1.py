@@ -17,6 +17,16 @@ def remontee(A,b):
         B[i] = B[i]/A[i,i]
     return B
 
+def descente(A,b):
+    # resout le systeme triangulaire inferieur Ax=b
+    (n,m)=np.shape(A)
+    B=np.copy(b)
+    for i in range (0,n):# attention 
+        B[i]=B[i]-np.dot(A[i,0:i],B[0:i])# attention 
+        B[i]=B[i]/A[i,i]
+    return B
+
+
 ###########essai
 
 import numpy as np

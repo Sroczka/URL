@@ -14,6 +14,12 @@ def Gauss1(A):
     T = np.copy(A)
     for k in range(n-1):
         pivot = T[k,k]
+        if (pivot == 0):
+            i = k+1
+            while (T[i,k]==0): # on recherche un coefficient non nul
+                 i=i+1
+            T[[i,k],:]=T[[k,i],:]
+            pivot=T[k,k] # nouveau pivot non nul
         for i in range(k+1,n):
             t = - T[i,k]/pivot
             T[i,] = T[i,] + T[k,] * t
@@ -28,12 +34,12 @@ b = np.array([1.,1.,1.])
 T = Gauss1(A)
 U=np.triu(T)
 L=T-U
-L=L+np.eyes(3,3)
+#L=L+np.eyes(3,3)
 np.dot(L,U)
 
 
 ##############################################
-def Gauss2(A,b):
+def Gauss2(A,b): #popraw
     T = np.c_[A,b]
     T = Gauss1(T)
     (x,y) = np.shape(T)
