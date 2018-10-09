@@ -151,3 +151,22 @@ fdo2 = open('do2.pcm','wb')
 for i in range(44000):
     fdo2.write(echantillon_do2[i])
 fdo2.close()
+
+fgama = open('gama.pcm','wb')
+for i in range(44000):
+    fgama.write(echantillon_do[i])
+for i in range(44000):
+    fgama.write(echantillon_re[i])
+for i in range(44000):
+    fgama.write(echantillon_mi[i])
+for i in range(44000):
+    fgama.write(echantillon_fa[i])
+for i in range(44000):
+    fgama.write(echantillon_sol[i])
+for i in range(44000):
+    fgama.write(echantillon_la[i])
+for i in range(44000):
+    fgama.write(echantillon_si[i])
+for i in range(44000):
+    fgama.write(echantillon_do2[i])
+fgama.close()
