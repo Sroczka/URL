@@ -45,5 +45,5 @@ print(slownik)
 ############################
 #ex 3
 
-with open("/users/mmath/echange/logMail","r") as f:
+#with open("/users/mmath/echange/logMail","r") as f:
     
