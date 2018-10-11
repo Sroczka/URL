@@ -48,7 +48,7 @@ echantillon_la = []
 for i in range (44000):
     echantillon_la.append(u(interval[i]))
 #g
-fn = open('la.pcm','wb')
+fn = open('la.pcm','wb')   #w - write, b - binary mode
 for i in range(44000):
     fn.write(echantillon_la[i])
 fn.close()
