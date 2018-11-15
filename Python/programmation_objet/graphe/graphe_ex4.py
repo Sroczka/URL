@@ -76,8 +76,6 @@ if __name__ == '__main__':
             #j += 1
             if(len(line.strip().split(" ")) == 2):  #co to strip???
                 source, but = line.strip().split(" ")
-                graf.add_sommet(source)
-                graf.add_arete("cytat", source, but)
+                graf.add_arete(i, source, but)
                 i += 1
-        print(graf)
-        print(i)
+        print(graf) #czyszczenie pamieci, jak sie pozbyc
