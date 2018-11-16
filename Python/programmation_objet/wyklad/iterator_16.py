@@ -31,7 +31,7 @@ class B:
             raise StopIteration("fin d'itération")
     
             
-a = Multiple([2,3,4,5,6,7])
+a = A([2,3,4,5,6,7])
 
 for i in a:
     for j in a:
