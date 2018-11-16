@@ -26,3 +26,7 @@ class SerieGeom():
 ma_serie = SerieGeom(1,2,100)
 for s in ma_serie:
     print(s)
+    
+#http://detox.wi.ps.pl/pb/sp/po/W4.pdf
+    # do nauki
+    
