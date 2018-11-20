@@ -35,7 +35,7 @@ def Jacobi(A,b,n,tol):
         for i in range(N):
             new_x[i] = (b[i] - np.dot(A[i,:],x) + np.dot(A[i,i],x[i]))/A[i,i]
         a = lg.norm(new_x - x)
-        if (a<tol):
+        if (a>tol):
             x = new_x
             k+=1
         else:
@@ -55,7 +55,7 @@ def Jacobi2(A,b,n,tol):
             new_x[i] = (b[i] - np.dot(A[i,:],x) + np.dot(A[i,i],x[i]))/A[i,i]
         r = np.dot(A,new_x) - b
         r = lg.norm(r)
-        if (r<tol):
+        if (r>tol):
             x = new_x
             k+=1
         else:
