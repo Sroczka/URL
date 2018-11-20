@@ -25,7 +25,7 @@ f.close()
 from math import sin,pi
 
 def s(t):
-    s = sin(440*2*pi*t)
+    s = sin(440*2*pi*t) *100
     return s
 
 def u(t):
