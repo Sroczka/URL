@@ -28,15 +28,22 @@ curve((a+1)/t0^(a+1)*x^a,xlim = c(-1,1), cex = 2,add=T)
 ##############CZESC 2###################
          ##################
 
-simuf <- function(alpha){
- 
+simuf <- function(alpha,N){
+  v= rep(0,N)
   t0 = pi/2
-  y <- simug(alpha, t0,1)
-  u <- runif(1)
-  
-  while (u>cos(y)){
+  for (i in 1:N){
     y <- simug(alpha, t0,1)
     u <- runif(1)
+    while (u>cos(y)){
+      y <- simug(alpha, t0,1)
+      u <- runif(1)
+    }
+    v[i] = y
   }
-  
+  return(v)
 }
+
+z = simuf(alpha,N)
+hist(z, freq = F, col = "lightblue")
+curve(x^alpha*cos(x)/(pi^2/4-2), col='red', add=T)
+#dzielenie przez pi itd zeby znormalizowac! bo gestosc na calej prostej == 1
