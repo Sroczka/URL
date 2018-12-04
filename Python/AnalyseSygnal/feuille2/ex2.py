@@ -35,6 +35,21 @@ for i in range(44000):
     ftierce.write(echantillon_mi[i])
 ftierce.close()
 
+def accord(t):
+    acc = sin(220*2**(1/4)*2*pi*t)+sin(220*2**(7/12)*2*pi*t)
+    return (round(acc)).to_bytes(1,byteorder='big',signed = True)
+
+echantillon_acc = []
+for i in range (44000):
+    echantillon_acc.append(accord(interval[i]))
+    
+f = open('accord.pcm','wb')
+for i in range(44000):
+    f.write(echantillon_acc[i])
+f.close()
+
+
+
 #b
 def re(t):
     re = round(sin(220*2**(5/12)*2*pi*t))
