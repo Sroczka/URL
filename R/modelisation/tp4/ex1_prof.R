@@ -21,8 +21,90 @@ MMC2<-function(n){
     s=s+sqrt(1-U^2);S=c(S,s) }
   return(S/1:length(S))
 }
+
 evol=MMC2(1000)
 plot(1:length(evol),evol,'l',lwd='2')
+curve(0*x+pi,lwd='2',col='2',add=TRUE)
+
+### Avec estimation de la variance
+MMC3<-function(n){
+  s=0;S=c()
+  scar=0;
+  for (i in(1:n)){
+    U=runif(1)
+    s=s+sqrt(1-U^2);S=c(S,s);scar=scar+(1-U^2) }
+  return(list(evol=S/1:length(S),varempir=scar/n-(s/n)^2))
+}
+evolvar=MMC3(1000)
+evolvar$varempir
+
+rho=0.01
+VE=1 ## variance Empirique
+s=0
+scar=0;
+c=(2*qnorm(0.975))^2
+rhocar=rho^2
+N=1;
+while ((N<50)|(VE*c/N>rhocar)){
+  U=runif(1)
+  s=s+sqrt(1-U^2);scar=scar+1-U^2;
+  VE=scar/N-(s/N)^2;N=N+1;
+}
+approx=s/N
+approx
+niter=N
+niter
+
+# Variable de contrôle
+
+MMCVC<-function(n){
+  s=0;sVC=0; S=c();SVC=c();
+  scarVC=0;
+  for (i in(1:n)){
+    U=runif(1)
+    s=s+sqrt(1-U^2)
+    sVC=sVC+sqrt(1-U^2)-(1-U^2)
+    S=c(S,s);
+    SVC=c(SVC,sVC)
+    scarVC=scarVC+(sqrt(1-U^2)-(1-U^2))^2
+  }
+  
+  return(list(evol=S/1:length(S),
+              evolVC=2/3+SVC/1:length(SVC),
+              varempirVC=scarVC/n-(s/n)^2))
+}
+
+
+testVC=MMCVC(5000)
+evol=testVC$evol
+evolVC=testVC$evolVC
+plot(1:length(evol),4*evol,'l',lwd='2',ylim=c(3.05,3.25),main="Evolution MMC/pi")
+lines(1:length(evolVC),4*evolVC,'l',lwd='2',col='3')
+curve(0*x+pi,lwd='2',col='2',add=TRUE)
+## On rajoute l'antithétique dans le jeu
+MMCanti<-function(n){
+  s=0;sVC=0;santi= S=c();SVC=c();
+  scarVC=0;
+  for (i in(1:n)){
+    U=runif(1)
+    s=s+sqrt(1-U^2)
+    sVC=sVC+sqrt(1-U^2)-(1-U^2)
+    S=c(S,s);
+    SVC=c(SVC,sVC)
+    scarVC=scarVC+(sqrt(1-U^2)-(1-U^2))^2
+  }
+  
+  return(list(evol=S/1:length(S),
+              evolVC=2/3+SVC/1:length(SVC),
+              varempirVC=scarVC/n-(s/n)^2))
+}
+testVC=MMCVC(5000)
+evol=testVC$evol
+evolVC=testVC$evolVC
+plot(1:length(evol),4*evol,'l',lwd='2',ylim=c(3.05,3.25),main="Evolution MMC/pi")
+lines(1:length(evolVC),4*evolVC,'l',lwd='2',col='3')
+curve(0*x+pi,lwd='2',col='2',add=TRUE)
+
 approche<-function(M,R){
   
   N=M*R;
@@ -79,7 +161,6 @@ approche1<-function(M,R){
   return(Sbar)
   
 }
-
 #estimation de la variance 
 esti<-function(M,R){
   
@@ -138,4 +219,3 @@ plot(M*c(1:R),v$Xbar,type="l")
 lines(M*c(1:R),v$Xbarcont,col="red",type="l")
 lines(M*c(1:R),(exp(1)-1)*rep(1,R),type="l",col="blue")
 lines(M*c(1:R),v$Xbaranti,col="green",type="l")
-
