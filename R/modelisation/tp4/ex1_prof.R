@@ -81,6 +81,7 @@ evolVC=testVC$evolVC
 plot(1:length(evol),4*evol,'l',lwd='2',ylim=c(3.05,3.25),main="Evolution MMC/pi")
 lines(1:length(evolVC),4*evolVC,'l',lwd='2',col='3')
 curve(0*x+pi,lwd='2',col='2',add=TRUE)
+
 ## On rajoute l'antithétique dans le jeu
 MMCanti<-function(n){
   s=0;sVC=0;santi= S=c();SVC=c();
@@ -193,6 +194,7 @@ approchecontrole<-function(M,R){
   U=runif(1)
   
   S=0;
+  S1=0;
   S=exp(U);
   Stilde=1+U;
   Xbar=rep(1,R);
