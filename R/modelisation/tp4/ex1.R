@@ -43,3 +43,21 @@ evolVar = MMC_var(1000)
 evolVar$varempir
 
 ##################
+
+#4
+rho = 0.05
+VE = 1
+s = 0
+scar = 0
+c = (2*qnorm(0.975))^2
+rhocar = rho^2
+
+##########
+MCVC <- function(n){
+  s = 0;VC = 0; S = c(); SCV = c()
+  scarVC = 0
+  for(i in 1:n){
+    U = runif(1)
+    s = s+sqrt(1-U^2) 
+  }
+}
