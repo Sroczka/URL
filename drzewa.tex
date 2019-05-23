@@ -1,0 +1,107 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{graphicx}
+
+\usepackage{tikz}
+
+\newcommand\encircle[1]{%
+  \tikz[baseline=(X.base)] 
+    \node (X) [draw, shape=circle, inner sep=1] {\Large{\strut #1}};}
+
+\newcommand\mkcircle[1]{%
+  \tikz[baseline=(X.base)] 
+    \node (X) [draw, shape=circle, inner sep=0] {\large{\strut #1}};}
+
+\begin{document}
+\begin{figure}[h!]
+\encircle{$100$}
+\put(0,5){\line(1,4){50}}
+\put(0,5){\line(2,0){50}}
+\put(0,5){\line(1,-4){50}}
+%%%%%%%%%%%%%%
+\put(55,240){\mkcircle{\textbf{A}}}
+\put(50,205){\encircle{$115$}}
+\put(85,210){\line(1,1){50}}
+\put(85,210){\line(1,0){50}}
+\put(85,210){\line(1,-1){50}}
+\put(135,265){\encircle{$120$}}
+\put(135,210){\encircle{$105$}}
+\put(135,160){\encircle{$90$}}
+%%%%%%%%%%%%%%
+\put(50,0){\encircle{$100$}}
+\put(85,5){\line(1,1){50}}
+\put(85,5){\line(1,0){50}}
+\put(85,5){\line(1,-1){50}}
+\put(135,55){\encircle{$110$}}
+\put(135,0){\encircle{$85$}}
+\put(135,-50){\encircle{$97$}}
+%%%%%%%%%%%%%%%%%5
+\put(50,-200){\encircle{$90$}}
+\put(80,-195){\line(1,1){50}}
+\put(80,-195){\line(1,0){50}}
+\put(80,-195){\line(1,-1){50}}
+\put(130,-145){\encircle{$99$}}
+\put(130,-200){\encircle{$95$}}
+\put(130,-250){\encircle{$88$}}
+%%%%%%%%%%%%%%%%%%
+%os czasu
+\put(-30,-270){\line(1,0){185}}
+\put(-20,-275){\line(0,1){10}}
+\put(-22,-285){$t_0$}
+\put(65,-275){\line(0,1){10}}
+\put(63,-285){$t_1$}
+\put(145,-275){\line(0,1){10}}
+\put(143,-285){$t_2$}
+%%%%%%%%%%%%%%%%%%%5
+%podpis
+\put(0,-310){(a) przykład drzewa cenowego}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\put(205,0){\encircle{$4.60$}}
+\put(245,5){\line(1,4){50}}
+\put(245,5){\line(2,0){50}}
+\put(245,5){\line(1,-4){50}}
+%%%%%%%%%%%%%%
+\put(295,205){\encircle{$3.25$}}
+\put(335,210){\line(1,1){50}}
+\put(335,210){\line(1,0){50}}
+\put(335,210){\line(1,-1){50}}
+\put(385,265){\encircle{$0$}}
+\put(385,210){\encircle{$0$}}
+\put(385,160){\encircle{$10$}}
+%%%%%%%%%%%%%%
+\put(295,0){\encircle{$5.83$}}
+\put(335,5){\line(1,1){50}}
+\put(335,5){\line(1,0){50}}
+\put(335,5){\line(1,-1){50}}
+\put(385,55){\encircle{$0$}}
+\put(385,0){\encircle{$15$}}
+\put(385,-50){\encircle{$13$}}
+%%%%%%%%%%%%%%%%%5
+\put(295,-200){\encircle{$5.28$}}
+\put(335,-195){\line(1,1){50}}
+\put(335,-195){\line(1,0){50}}
+\put(335,-195){\line(1,-1){50}}
+\put(385,-145){\encircle{$1$}}
+\put(385,-200){\encircle{$5$}}
+\put(385,-250){\encircle{$20$}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%os czasu
+\put(210,-270){\line(1,0){200}}
+\put(220,-275){\line(0,1){10}}
+\put(220,-285){$t_0$}
+\put(315,-275){\line(0,1){10}}
+\put(313,-285){$t_1$}
+\put(400,-275){\line(0,1){10}}
+\put(398,-285){$t_2$}
+%%%%%%%%%%%
+%podpis
+\put(220,-310){(b) przykład wyliczenia estymatora $\theta$}
+%%%%%%%%%%%%%%%%
+\caption{Przykład $\theta$}\label{fig:dolny} 
+\end{figure}
+\end{document}
